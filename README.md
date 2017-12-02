@@ -22,7 +22,7 @@ dim(img)
 plotTherm(img, h=480, w=640, thermal.palette=rainbow1234pal, minrangeset=min(img), maxrangeset=max(img), trans="rotate270.matrix")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-1-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
 
 The plot above is simply the raw binary radiance values imported. The scale should be in raw units where max possible = 2^16=65535 corresponding to the data storage method from FLIR jpgs)
 
@@ -104,7 +104,7 @@ mean(trealExamIR-trealRD)       # -0.0609 oC difference
 hist(trealThermcam-trealRD)
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-4-1.png) So 3 programs by FLIR that open the same image and have camera settings set to the same values, lead to to estimated temperatures that differ by 0.07 to 0.13 degrees C! The largest difference of -0.14 is between Thermacam Researcher Pro vs Research R&D Max. Some differences are as much as -0.25 degrees C. Presumably the algorithm has changed with the more recent software (R&D Max)?
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png) So 3 programs by FLIR that open the same image and have camera settings set to the same values, lead to to estimated temperatures that differ by 0.07 to 0.13 degrees C! The largest difference of -0.14 is between Thermacam Researcher Pro vs Research R&D Max. Some differences are as much as -0.25 degrees C. Presumably the algorithm has changed with the more recent software (R&D Max)?
 
 But no explanation is provided for this, and this is the challenge of working with proprietary, non open source software. But these differences are fairly small, so perhaps we can ignore them. It does suggest caution, however in assuming all software is operating on the same principles.
 
@@ -181,7 +181,7 @@ mean(x) # 0.033oC
 hist(x, main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 ``` r
 x<-tt0.9c-tt0.9
@@ -194,7 +194,7 @@ mean(x) # -0.0497 oC
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-9-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-2.png)
 
 ``` r
 x<-tt0.7c-tt0.7
@@ -207,7 +207,7 @@ mean(x) # 0.044 oC
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-9-3.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-3.png)
 
 ``` r
 x<-trt40c-trt40
@@ -220,7 +220,7 @@ mean(x) # -0.028 oC
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-9-4.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-4.png)
 
 ``` r
 x<-te0.9c-te0.9
@@ -233,7 +233,7 @@ mean(x) # 0.035 oC
 hist(x, main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-9-5.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-5.png)
 
 For all the above, the difference between Thermimage calculated values and Thermacam Researcher Pro exported values is ~0.04 oC which happens to be the resolution of the thermal camera used (Model SC660).
 
@@ -245,19 +245,19 @@ Therefore, it appears that calculations in raw2temp() are working as intended.
 plotTherm(tt0.9, h=480, w=640, minrangeset=20, maxrangeset=46, trans="rotate270.matrix",  main="Temperatures from Thermacam Researcher Pro", thermal.palette=rainbow1234pal)
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 ``` r
 plotTherm(tt0.9c, h=480, w=640,  minrangeset=20, maxrangeset=46, trans="rotate270.matrix", main="Temperatures from Thermimage's raw2temp function", thermal.palette=rainbow1234pal)
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-10-2.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-2.png)
 
 ``` r
 plotTherm(tt0.9-tt0.9c,h=480, w=640,  minrangeset=-0.08, maxrangeset=0.08, trans="rotate270.matrix", main="Difference between raw2temp minus Thermacam Researcher Pro", thermal.palette=rainbow1234pal)
 ```
 
-![](ThermimageCheckCalculations_files/figure-markdown_github/unnamed-chunk-10-3.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-3.png)
 
 ### References
 
