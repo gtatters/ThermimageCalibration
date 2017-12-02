@@ -56,12 +56,14 @@ mean(tt0.7-trealThermcam)  # 5.527 oC
 mean(trt40-trealThermcam)  # -0.95 oC
 mean(te0.9-trealThermcam)  # 0.88 oC
 
+flirsettings("IguanaImage.jpg", camvals="-*Planck*")$Info
+
 # Create 5 calculated values using Thermimage raw2temp() function:
-trealc<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=1, RH=50)
-tt0.9c<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=0.9, RH=50)
-tt0.7c<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=0.7, RH=50)
-trt40c<-raw2temp(r1, E=0.96, OD=1, RTemp=40, ATemp=40, IRWTemp=40, IRT=1, RH=50)
-te0.9c<-raw2temp(r1, E=0.9, OD=1, RTemp=20, ATemp=20, IRT=1, RH=50)
+trealc<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=1, RH=50,PR1 = 21106.77, PB = 1501, PF = 1, PO = -7340, PR2 = 0.012545258)
+tt0.9c<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=0.9, RH=50, PR1 = 21106.77, PB = 1501, PF = 1, PO = -7340, PR2 = 0.012545258)
+tt0.7c<-raw2temp(r1, E=0.96, OD=1, RTemp=20, ATemp=20, IRT=0.7, RH=50, PR1 = 21106.77, PB = 1501, PF = 1, PO = -7340, PR2 = 0.012545258)
+trt40c<-raw2temp(r1, E=0.96, OD=1, RTemp=40, ATemp=40, IRWTemp=40, IRT=1, RH=50, PR1 = 21106.77, PB = 1501, PF = 1, PO = -7340, PR2 = 0.012545258)
+te0.9c<-raw2temp(r1, E=0.9, OD=1, RTemp=20, ATemp=20, IRT=1, RH=50,PR1 = 21106.77, PB = 1501, PF = 1, PO = -7340, PR2 = 0.012545258)
 
 
 # Compare Thermimage calculated set to the same settings as exported from Thermacam Researcher Pro:
@@ -101,4 +103,7 @@ image.plot(rotate270.matrix(tt0.9c), useRaster=TRUE, bty="n", col=thermal.palett
 
 image.plot(rotate270.matrix(tt0.9c-tt0.9), useRaster=TRUE, bty="n", col=thermal.palette, main="Thermimage Calculated",
            xlab="", ylab="", xaxt="n", yaxt="n",  asp=480/640)
-
+ 
+plotTherm(tt0.9, h=640, w=480, minrangeset=20, maxrangeset=46, trans="rotate270.matrix")
+plotTherm(tt0.9c, h=640, w=480, minrangeset=20, maxrangeset=46, trans="rotate270.matrix")
+plotTherm(tt0.9-tt0.9c, h=640, w=480, minrangeset=-0.08, maxrangeset=0.08, trans="rotate270.matrix")
