@@ -172,10 +172,16 @@ Compare Thermimage calculated values to the same settings as exported from Therm
 
 ``` r
 x<-trealc-trealThermcam
-mean(x) # 0.033oC 
+mean(x) # 0.033oC
 ```
 
     ## [1] 0.03322015
+
+``` r
+sd(x)
+```
+
+    ## [1] 0.03120411
 
 ``` r
 hist(x, main="raw2temp calculation vs. Thermacam Pro")
@@ -191,6 +197,12 @@ mean(x) # -0.0497 oC
     ## [1] -0.04975892
 
 ``` r
+sd(x)
+```
+
+    ## [1] 0.01726031
+
+``` r
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 ```
 
@@ -202,6 +214,12 @@ mean(x) # 0.044 oC
 ```
 
     ## [1] 0.04439957
+
+``` r
+sd(x)
+```
+
+    ## [1] 0.032602
 
 ``` r
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
@@ -217,6 +235,12 @@ mean(x) # -0.028 oC
     ## [1] -0.02780422
 
 ``` r
+sd(x)
+```
+
+    ## [1] 0.03686335
+
+``` r
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 ```
 
@@ -228,6 +252,12 @@ mean(x) # 0.035 oC
 ```
 
     ## [1] 0.03491885
+
+``` r
+sd(x)
+```
+
+    ## [1] 0.0312952
 
 ``` r
 hist(x, main="raw2temp calculation vs. Thermacam Pro")

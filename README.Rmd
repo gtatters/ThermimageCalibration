@@ -98,27 +98,32 @@ Compare Thermimage calculated values to the same settings as exported from Therm
 
 ```{r}
 x<-trealc-trealThermcam
-mean(x) # 0.033oC 
+mean(x) # 0.033oC
+sd(x)
 hist(x, main="raw2temp calculation vs. Thermacam Pro")
 
 x<-tt0.9c-tt0.9
 mean(x) # -0.0497 oC
+sd(x)
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 
 x<-tt0.7c-tt0.7
 mean(x) # 0.044 oC
+sd(x)
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 
 x<-trt40c-trt40
 mean(x) # -0.028 oC
+sd(x)
 hist(x,  main="raw2temp calculation vs. Thermacam Pro")
 
 x<-te0.9c-te0.9
 mean(x) # 0.035 oC
+sd(x)
 hist(x, main="raw2temp calculation vs. Thermacam Pro")
 ```
 
-For all the above, the difference between Thermimage calculated values and Thermacam Researcher Pro  exported values is ~0.04 oC which happens to be the resolution of the thermal camera used (Model SC660).
+For all the above, the difference between Thermimage calculated values and Thermacam Researcher Pro exported values is ~0.03 to 0.04 oC which happens to be the resolution of the thermal camera used (Model SC660).
 
 Therefore, it appears that calculations in raw2temp() are working as intended. 
 
