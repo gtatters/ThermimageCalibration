@@ -265,7 +265,7 @@ hist(x, main="raw2temp calculation vs. Thermacam Pro")
 
 ![](README_files/figure-markdown_github/unnamed-chunk-9-5.png)
 
-For all the above, the difference between Thermimage calculated values and Thermacam Researcher Pro exported values is ~0.04 oC which happens to be the resolution of the thermal camera used (Model SC660).
+For all the above, the difference between Thermimage calculated values and Thermacam Researcher Pro exported values is ~0.03 to 0.04 oC which happens to be the resolution of the thermal camera used (Model SC660).
 
 Therefore, it appears that calculations in raw2temp() are working as intended.
 
